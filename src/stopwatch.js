@@ -13,25 +13,18 @@ class StopWatch {
     this.running = obj.running;
     this.duration = obj.duration;
   }
-  static durationCalc() {
-    return Object.defineProperty(this, "duration", {
-      get: () => {
-        return console.log(this.duration);
-      }
-    });
-  }
   start() {
-    const startHelper = () => {
+    const _startHelper = () => {
       this.running = true;
       this.startTime = new Date();
       console.log(this.startTime.getSeconds());
       return;
     };
-    this.running ? console.error("Stop watch is running") : startHelper();
+    this.running ? console.error("stopwatch is running") : _startHelper();
     return;
   }
   stop() {
-    const stopHelper = () => {
+    const _stopHelper = () => {
       this.running = false;
       this.endTime = new Date();
       console.log(this.endTime.getSeconds());
@@ -40,7 +33,7 @@ class StopWatch {
       this.duration += seconds;
       return;
     };
-    !this.running ? console.error("Stop watch is not running") : stopHelper();
+    !this.running ? console.error("stopwatch is not running") : _stopHelper();
     return;
   }
   reset() {
