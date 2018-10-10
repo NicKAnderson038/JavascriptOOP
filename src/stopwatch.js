@@ -16,7 +16,7 @@ class StopWatch {
   static durationCalc() {
     return Object.defineProperty(this, "duration", {
       get: () => {
-        return this.duration;
+        return console.log(this.duration);
       }
     });
   }
@@ -25,6 +25,8 @@ class StopWatch {
       ? console.error("Stop watch is running")
       : (this.running = true);
     this.startTime = new Date();
+    console.log(this.startTime.getTime());
+    return;
   }
   stop() {
     !this.running
@@ -33,6 +35,7 @@ class StopWatch {
     this.endTime = new Date();
     const seconds = (this.endTime.getTime() - this.startTime.getTime()) / 1000;
     this.duration += seconds;
+    console.log(this.duration);
     return;
   }
   reset() {
