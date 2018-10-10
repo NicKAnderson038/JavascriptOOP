@@ -1,8 +1,6 @@
 class Book {
   constructor(title, author, year) {
-    this.title = title;
-    this.author = author;
-    this.year = year;
+    Object.assign(this, { title, author, year });
   }
   combine() {
     return console.log(`${this.title} by ${this.author} in ${this.year}`);
@@ -20,7 +18,8 @@ console.log(book1.combine());
 class TVshow extends Book {
   constructor(title, author, year, season) {
     super(title, author, year);
-    this.season = season;
+    // this.season = season;
+    Object.assign(this, { season });
   }
   combine() {
     return console.log(

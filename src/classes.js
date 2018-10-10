@@ -1,8 +1,9 @@
 class Book {
+  static number() {
+    return 10;
+  }
   constructor(title, author, year) {
-    this.title = title;
-    this.author = author;
-    this.year = year;
+    Object.assign(this, { title, author, year });
   }
   combine() {
     return console.log(`${this.title} by ${this.author} in ${this.year}`);
