@@ -1,9 +1,9 @@
 class StopWatch {
   static settings() {
     return {
-      startTime: 0,
-      endTime: 0,
-      running: 0,
+      startTime: null,
+      endTime: null,
+      running: false,
       duration: 0
     };
   }
@@ -25,7 +25,7 @@ class StopWatch {
       ? console.error("Stop watch is running")
       : (this.running = true);
     this.startTime = new Date();
-    console.log(this.startTime.getTime());
+    console.log(this.startTime.getSeconds());
     return;
   }
   stop() {
@@ -33,9 +33,9 @@ class StopWatch {
       ? console.error("Stop watch is not running")
       : (this.running = false);
     this.endTime = new Date();
+    console.log(this.endTime.getSeconds());
     const seconds = (this.endTime.getTime() - this.startTime.getTime()) / 1000;
     this.duration += seconds;
-    console.log(this.duration);
     return;
   }
   reset() {
@@ -43,6 +43,10 @@ class StopWatch {
     this.endTime = null;
     this.running = false;
     this.duration = 0;
+    return;
+  }
+  durationTime() {
+    console.log(this.duration);
     return;
   }
 }
