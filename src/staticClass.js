@@ -14,7 +14,10 @@ const car1 = new Car("Nissan Path Finder", 20000);
 const car2 = new Car("Honda Fit", 15000);
 console.log(car1.combine(), car2.combine());
 
-// static objects can be ran on the class only.
+/**
+ *  static objects can be ran on the class only.
+ *  static functions can provide utility functionality.
+ */
 console.log(
   `The difference between the cars is $${Car.comparePrice(car1, car2)}.`
 );
