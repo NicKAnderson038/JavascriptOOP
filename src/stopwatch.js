@@ -21,21 +21,26 @@ class StopWatch {
     });
   }
   start() {
-    this.running
-      ? console.error("Stop watch is running")
-      : (this.running = true);
-    this.startTime = new Date();
-    console.log(this.startTime.getSeconds());
+    const startHelper = () => {
+      this.running = true;
+      this.startTime = new Date();
+      console.log(this.startTime.getSeconds());
+      return;
+    };
+    this.running ? console.error("Stop watch is running") : startHelper();
     return;
   }
   stop() {
-    !this.running
-      ? console.error("Stop watch is not running")
-      : (this.running = false);
-    this.endTime = new Date();
-    console.log(this.endTime.getSeconds());
-    const seconds = (this.endTime.getTime() - this.startTime.getTime()) / 1000;
-    this.duration += seconds;
+    const stopHelper = () => {
+      this.running = false;
+      this.endTime = new Date();
+      console.log(this.endTime.getSeconds());
+      const seconds =
+        (this.endTime.getTime() - this.startTime.getTime()) / 1000;
+      this.duration += seconds;
+      return;
+    };
+    !this.running ? console.error("Stop watch is not running") : stopHelper();
     return;
   }
   reset() {
@@ -53,3 +58,4 @@ class StopWatch {
 const staticData = StopWatch.settings();
 console.log("Fixed values", staticData);
 const watch = new StopWatch(staticData);
+console.log(watch);
