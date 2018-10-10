@@ -1,2 +1,0 @@
-# JavascriptOOP
-Created with CodeSandbox
